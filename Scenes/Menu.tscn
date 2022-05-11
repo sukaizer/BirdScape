@@ -19,7 +19,7 @@ margin_right = 247.0
 margin_bottom = 152.0
 rect_scale = Vector2( 2, 2 )
 theme = ExtResource( 3 )
-text = "Birdscape"
+text = "BirdScape"
 
 [node name="PlayButton" type="Button" parent="."]
 margin_left = 144.0
