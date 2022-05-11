@@ -3,11 +3,14 @@ extends KinematicBody2D
 export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 
-export (int) var jump_speed = -400
-export (int) var gravity = 1200
+export (int) var jump_speed = -500
+export (int) var gravity = 1500
 
 var velocity = Vector2()
 var jumping = false
+var collisions
+
+signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,13 +24,16 @@ func get_input():
 		velocity.y = jump_speed
 
 func _physics_process(delta):
-	print(velocity)
 	get_input()
 	velocity.y += gravity * delta
 	if jumping:
 		jumping = false
-	velocity = move_and_slide(velocity, Vector2(0, -1))
-	
+	#velocity = move_and_slide(velocity, Vector2(0, 1))
+	collisions = move_and_collide(velocity*delta)
+
+	if collisions:
+		emit_signal("hit")
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
