@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle.png-a0a613835768f6d087e6748611912764.stex"
+path="res://.import/Flopping-Sheet.png-4517c328ac8bbae86125bcb514247006.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animations/Idle.png"
-dest_files=[ "res://.import/Idle.png-a0a613835768f6d087e6748611912764.stex" ]
+source_file="res://assets/animations/Flopping-Sheet.png"
+dest_files=[ "res://.import/Flopping-Sheet.png-4517c328ac8bbae86125bcb514247006.stex" ]
 
 [params]
 
