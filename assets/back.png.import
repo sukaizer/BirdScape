@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shell-Sheet.png-7bcf7c9922887f6e2fe1c80899a5cda0.stex"
+path="res://.import/back.png-515119acda62477b1fef7f62900af1e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animations/Shell-Sheet.png"
-dest_files=[ "res://.import/Shell-Sheet.png-7bcf7c9922887f6e2fe1c80899a5cda0.stex" ]
+source_file="res://assets/back.png"
+dest_files=[ "res://.import/back.png-515119acda62477b1fef7f62900af1e0.stex" ]
 
 [params]
 

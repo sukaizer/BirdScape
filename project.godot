@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Floppy Bird"
+config/name="BirdScape"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://assets/logo.png"
 

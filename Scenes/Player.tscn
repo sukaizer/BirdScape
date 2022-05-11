@@ -81,5 +81,5 @@ shape = SubResource( 2 )
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -8.117
+volume_db = -9.428
 pitch_scale = 1.1
