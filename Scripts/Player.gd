@@ -20,6 +20,7 @@ func get_input():
 	velocity.x = 0
 	var jump = Input.is_action_just_pressed('jump')
 	if jump:
+		$JumpSound.play()
 		jumping = true
 		velocity.y = jump_speed
 
