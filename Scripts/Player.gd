@@ -47,3 +47,4 @@ func _process(delta):
 		$AnimatedSprite.animation = "up"
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+
