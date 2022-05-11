@@ -11,7 +11,7 @@ func _ready():
 	$UI/RetryRect.hide()
 	var pipes = get_tree().get_nodes_in_group("pipes")
 	for pipe in pipes :
-		pipe.connect("score", $UI/ScoreLabel, "_on_PipeUp_score")
+		pipe.connect("score", $UI/ScoreRect/ScoreLabel, "_on_PipeUp_score")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
