@@ -2,8 +2,7 @@
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
-
-[sub_resource type="Theme" id=1]
+[ext_resource path="res://Theme/ui_theme.tres" type="Theme" id=3]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -12,36 +11,41 @@ script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 240, 360 )
-scale = Vector2( 1, 1.00278 )
 texture = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 480.0
-margin_bottom = 14.0
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.647059, 0, 0, 1 )
+margin_left = 160.0
+margin_top = 136.0
+margin_right = 247.0
+margin_bottom = 152.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 3 )
 text = "Floppy Bird"
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 480.0
-margin_bottom = 38.0
-theme = SubResource( 1 )
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 352.0
+margin_bottom = 272.0
+theme = ExtResource( 3 )
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
-margin_top = 42.0
-margin_right = 480.0
-margin_bottom = 62.0
+[node name="OptionsButton" type="Button" parent="."]
+margin_left = 144.0
+margin_top = 328.0
+margin_right = 352.0
+margin_bottom = 376.0
+theme = ExtResource( 3 )
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 66.0
-margin_right = 480.0
-margin_bottom = 86.0
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 144.0
+margin_top = 424.0
+margin_right = 352.0
+margin_bottom = 472.0
+theme = ExtResource( 3 )
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
