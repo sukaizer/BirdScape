@@ -9,7 +9,7 @@ export (int) var gravity = 1500
 var velocity = Vector2()
 var jumping = false
 var collisions
-var rotation_speed = 1.3
+var rotation_speed = 1.7
 
 var shells = 0;
 
@@ -54,14 +54,14 @@ func _process(delta):
 		$AnimatedSprite.stop()
 	if velocity.y > 0:
 		$AnimatedSprite.animation = "idle"
-		if $AnimatedSprite.rotation_degrees < 90:
+		if $AnimatedSprite.rotation_degrees < 80:
 			$AnimatedSprite.rotation_degrees += rotation_speed
 			$CollisionShape2D.rotation_degrees += rotation_speed
 	else:
 		$AnimatedSprite.animation = "up"
-		if $AnimatedSprite.rotation_degrees > -90:
+		if $AnimatedSprite.rotation_degrees > -80:
 			$AnimatedSprite.rotation_degrees -= rotation_speed
 			$CollisionShape2D.rotation_degrees -= rotation_speed
 	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	position.y = clamp(position.y, 70, screen_size.y)
 

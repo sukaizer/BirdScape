@@ -10,11 +10,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):	
-	$AnimatedSprite.play()
-	position += Vector2(speed,0) * delta
-	if position.x < -100 : 
-		queue_free()
+func _process(delta):
+	if GameManager.isPlaying:
+		$AnimatedSprite.play()
+		position += Vector2(speed,0) * delta
+		if position.x < -100 : 
+			queue_free()
 
 
 func _on_Shell_body_entered(body):

@@ -1,6 +1,6 @@
 extends Node
 
-export (PackedScene) var pipeup_scene
+export (PackedScene) var pipe_scene
 
 var rng = RandomNumberGenerator.new()
 var distance = 675
@@ -8,6 +8,7 @@ var distance = 675
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.isPlaying = true
 	$UI/HUD/AnimatedSprite.play()
 	rng.randomize()
 	$UI/Retry/RetryRect.hide()
@@ -24,6 +25,7 @@ func _process(delta):
 
 func _on_Player_hit():
 	$UI/Retry/RetryRect.show()
+	GameManager.isPlaying = false
 
 
 func _unhandled_input(event):
@@ -32,10 +34,13 @@ func _unhandled_input(event):
 
 
 func _on_Timer_timeout():
-	var pipe1 = pipeup_scene.instance()
-	var pipe2 = pipeup_scene.instance()
+	var pipe1 = pipe_scene.instance()
+	var pipe2 = pipe_scene.instance()
 	
 	var pipe1y = rng.randf_range(600, 900)
+	
+	add_child(pipe1)
+	add_child(pipe2)
 	
 	pipe1.global_transform.origin.y = pipe1y
 	pipe1.global_transform.origin.x = 600
@@ -47,5 +52,4 @@ func _on_Timer_timeout():
 	
 	pipe1.connect("score", $UI/HUD/ScoreLabel, "_on_PipeUp_score")
 	
-	add_child(pipe1)
-	add_child(pipe2)
+

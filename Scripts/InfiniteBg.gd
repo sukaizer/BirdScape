@@ -12,9 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for i in range(3):
-		var temp = backgrounds[i].position
-		temp.x -= moveSpeed * delta
-		if temp.x <= minX :
-			temp.x += bgWidth * backgrounds.size()
-		backgrounds[i].position = temp
+	if GameManager.isPlaying:
+		for i in range(3):
+			var temp = backgrounds[i].position
+			temp.x -= moveSpeed * delta
+			if temp.x <= minX :
+				temp.x += bgWidth * backgrounds.size()
+			backgrounds[i].position = temp

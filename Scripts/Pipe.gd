@@ -19,9 +19,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += Vector2(speed,0) * delta
-	if position.x < screen_size.x/2 && isRight:
-		emit_signal("score")
-		isRight = false
-	elif position.x < -100 : 
-		queue_free()
+	if GameManager.isPlaying:
+		position += Vector2(speed,0) * delta
+		if position.x < screen_size.x/2 && isRight:
+			emit_signal("score")
+			isRight = false
+		elif position.x < -100 : 
+			queue_free()
