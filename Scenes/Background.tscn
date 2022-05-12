@@ -4,5 +4,4 @@
 
 [node name="Background" type="Sprite"]
 position = Vector2( 240, 384 )
-scale = Vector2( 0.8, 0.96 )
 texture = ExtResource( 1 )

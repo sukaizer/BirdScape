@@ -3,7 +3,7 @@ extends Node
 export (PackedScene) var pipeup_scene
 
 var rng = RandomNumberGenerator.new()
-
+var distance = 675
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	#$Background.position.x -= 10*delta
 
 
 func _on_Player_hit():
@@ -31,11 +32,20 @@ func _unhandled_input(event):
 
 
 func _on_Timer_timeout():
-	print("hello")
-	var pipe = pipeup_scene.instance()
-	pipe.global_transform.origin.y = rng.randf_range(600, 800)
-	pipe.global_transform.origin.x = 700
-	pipe.scale.x = 1
-	pipe.scale.y = 1
-	pipe.connect("score", $UI/ScoreRect/ScoreLabel, "_on_PipeUp_score")
-	add_child(pipe)
+	var pipe1 = pipeup_scene.instance()
+	var pipe2 = pipeup_scene.instance()
+	
+	var pipe1y = rng.randf_range(600, 800)
+	
+	pipe1.global_transform.origin.y = pipe1y
+	pipe1.global_transform.origin.x = 600
+	
+	pipe2.global_transform.origin.y = pipe1y - distance
+	pipe2.global_transform.origin.x = 600
+	pipe2.rotation_degrees = 180
+
+	
+	pipe1.connect("score", $UI/ScoreRect/ScoreLabel, "_on_PipeUp_score")
+	
+	add_child(pipe1)
+	add_child(pipe2)
