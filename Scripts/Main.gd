@@ -8,6 +8,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$UI/ShellCount/AnimatedSprite.play()
 	rng.randomize()
 	$UI/RetryRect.hide()
 	var pipes = get_tree().get_nodes_in_group("pipes")

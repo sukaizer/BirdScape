@@ -3,7 +3,6 @@ extends Area2D
 
 export var speed = -50
 var screen_size
-signal shell
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +18,5 @@ func _process(delta):
 
 
 func _on_Shell_body_entered(body):
-	emit_signal("shell")
 	GameManager.Player.add_shell()
 	queue_free()

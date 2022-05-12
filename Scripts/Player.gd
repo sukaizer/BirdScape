@@ -13,8 +13,10 @@ var collisions
 var shells = 0;
 
 signal hit
+signal shell
 
 func add_shell():
+	emit_signal("shell")
 	$ShellSound.play()
 	shells += 1
 
