@@ -39,22 +39,16 @@ animations = [ {
 script = ExtResource( 4 )
 pipeup_scene = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
 script = ExtResource( 10 )
 
-[node name="Background1" parent="Node2D" instance=ExtResource( 1 )]
+[node name="Background1" parent="Backgrounds" instance=ExtResource( 1 )]
 
-[node name="Background2" parent="Node2D" instance=ExtResource( 1 )]
+[node name="Background2" parent="Backgrounds" instance=ExtResource( 1 )]
 position = Vector2( 840, 384 )
 
-[node name="Background3" parent="Node2D" instance=ExtResource( 1 )]
+[node name="Background3" parent="Backgrounds" instance=ExtResource( 1 )]
 position = Vector2( 1440, 384 )
-
-[node name="Background4" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 2640, 384 )
-
-[node name="Background5" parent="Node2D" instance=ExtResource( 1 )]
-position = Vector2( 2040, 384 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240, 360 )
@@ -68,6 +62,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="ShellCount" type="Node2D" parent="UI"]
+z_index = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI/ShellCount"]
 position = Vector2( 455, 30 )
@@ -87,30 +82,29 @@ text = "0"
 align = 2
 script = ExtResource( 8 )
 
-[node name="ScoreRect" type="ColorRect" parent="UI"]
-margin_left = 208.0
-margin_top = 40.0
-margin_right = 272.0
-margin_bottom = 104.0
-color = Color( 0.619608, 0.239216, 0.239216, 0 )
+[node name="Score" type="Node2D" parent="UI"]
+z_index = 2
 
-[node name="ScoreLabel" type="Label" parent="UI/ScoreRect"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 25.0
-margin_bottom = 24.0
+[node name="ScoreLabel" type="Label" parent="UI/Score"]
+margin_left = 224.0
+margin_top = 48.0
+margin_right = 233.0
+margin_bottom = 64.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 5 )
 text = "0"
 script = ExtResource( 6 )
 
-[node name="RetryRect" type="ColorRect" parent="UI"]
+[node name="Retry" type="Node2D" parent="UI"]
+z_index = 2
+
+[node name="RetryRect" type="ColorRect" parent="UI/Retry"]
 visible = false
 margin_right = 480.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 0.878431 )
 
-[node name="RetryLabel" type="Label" parent="UI/RetryRect"]
+[node name="RetryLabel" type="Label" parent="UI/Retry/RetryRect"]
 margin_left = 160.0
 margin_top = 240.0
 margin_right = 316.0

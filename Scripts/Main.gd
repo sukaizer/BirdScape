@@ -10,7 +10,7 @@ var distance = 675
 func _ready():
 	$UI/ShellCount/AnimatedSprite.play()
 	rng.randomize()
-	$UI/RetryRect.hide()
+	$UI/Retry/RetryRect.hide()
 	var pipes = get_tree().get_nodes_in_group("pipes")
 	for pipe in pipes :
 		pipe.connect("score", $UI/ScoreRect/ScoreLabel, "_on_PipeUp_score")
@@ -23,11 +23,11 @@ func _process(delta):
 
 
 func _on_Player_hit():
-	$UI/RetryRect.show()
+	$UI/Retry/RetryRect.show()
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") and $UI/RetryRect.visible:
+	if event.is_action_pressed("ui_accept") and $UI/Retry/RetryRect.visible:
 		get_tree().reload_current_scene()
 
 
@@ -45,7 +45,7 @@ func _on_Timer_timeout():
 	pipe2.rotation_degrees = 180
 
 	
-	pipe1.connect("score", $UI/ScoreRect/ScoreLabel, "_on_PipeUp_score")
+	pipe1.connect("score", $UI/Score/ScoreLabel, "_on_PipeUp_score")
 	
 	add_child(pipe1)
 	add_child(pipe2)

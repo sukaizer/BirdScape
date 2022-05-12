@@ -1,18 +1,18 @@
 extends Node
 
 var backgrounds = []
-var bgWidth  = 600
+var bgWidth
 var moveSpeed = 40
 var minX = -400
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	backgrounds = [$Background1,$Background2,$Background3,$Background4,$Background5]
-
+	backgrounds = [$Background1,$Background2,$Background3]
+	bgWidth = $Background1.texture.get_width()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for i in range(5):
+	for i in range(3):
 		var temp = backgrounds[i].position
 		temp.x -= moveSpeed * delta
 		if temp.x <= minX :
