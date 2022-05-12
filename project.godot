@@ -18,6 +18,10 @@ config/name="BirdScape"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://assets/logo.png"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [display]
 
 window/size/width=480

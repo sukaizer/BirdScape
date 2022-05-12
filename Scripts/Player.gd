@@ -10,10 +10,17 @@ var velocity = Vector2()
 var jumping = false
 var collisions
 
+var shells = 0;
+
 signal hit
+
+func add_shell():
+	$ShellSound.play()
+	shells += 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.Player = self
 	screen_size = get_viewport_rect().size
 
 func get_input():

@@ -20,5 +20,5 @@ func _process(delta):
 
 func _on_Shell_body_entered(body):
 	emit_signal("shell")
-	$ShellSound.play()
+	GameManager.Player.add_shell()
 	queue_free()
