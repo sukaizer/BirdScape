@@ -43,12 +43,13 @@ pipeup_scene = ExtResource( 3 )
 script = ExtResource( 10 )
 
 [node name="Background1" parent="Backgrounds" instance=ExtResource( 1 )]
+position = Vector2( 240, 400 )
 
 [node name="Background2" parent="Backgrounds" instance=ExtResource( 1 )]
-position = Vector2( 840, 384 )
+position = Vector2( 840, 400 )
 
 [node name="Background3" parent="Backgrounds" instance=ExtResource( 1 )]
-position = Vector2( 1440, 384 )
+position = Vector2( 1440, 400 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240, 360 )
@@ -61,37 +62,37 @@ rotation = 3.14159
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ShellCount" type="Node2D" parent="UI"]
+[node name="HUD" type="Node2D" parent="UI"]
 z_index = 2
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/ShellCount"]
-position = Vector2( 455, 30 )
-scale = Vector2( 0.734375, 0.765625 )
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+margin_right = 480.0
+margin_bottom = 64.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/HUD"]
+position = Vector2( 454, 35 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 5 )
 
-[node name="ShellLabel" type="Label" parent="UI/ShellCount"]
-modulate = Color( 0.282353, 0.941176, 0.984314, 1 )
-self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
-margin_left = 357.0
-margin_top = 12.0
-margin_right = 382.0
-margin_bottom = 28.0
-rect_scale = Vector2( 2.638, 2.638 )
+[node name="ShellLabel" type="Label" parent="UI/HUD"]
+margin_left = 392.0
+margin_top = 16.0
+margin_right = 431.0
+margin_bottom = 56.0
 theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 2
 script = ExtResource( 8 )
 
-[node name="Score" type="Node2D" parent="UI"]
-z_index = 2
-
-[node name="ScoreLabel" type="Label" parent="UI/Score"]
-margin_left = 224.0
-margin_top = 48.0
-margin_right = 233.0
-margin_bottom = 64.0
-rect_scale = Vector2( 4, 4 )
+[node name="ScoreLabel" type="Label" parent="UI/HUD"]
+margin_left = 212.0
+margin_top = -18.0
+margin_right = 228.0
+margin_bottom = 22.0
+rect_scale = Vector2( 2.75, 2.75 )
 theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 script = ExtResource( 6 )
 
@@ -105,9 +106,9 @@ margin_bottom = 720.0
 color = Color( 0, 0, 0, 0.878431 )
 
 [node name="RetryLabel" type="Label" parent="UI/Retry/RetryRect"]
-margin_left = 160.0
-margin_top = 240.0
-margin_right = 316.0
+margin_left = 104.0
+margin_top = 216.0
+margin_right = 372.0
 margin_bottom = 256.0
 theme = ExtResource( 5 )
 text = "Press enter to retry"
@@ -120,5 +121,5 @@ wait_time = 2.0
 autostart = true
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
-[connection signal="shell" from="Player" to="UI/ShellCount/ShellLabel" method="_on_Player_shell"]
+[connection signal="shell" from="Player" to="UI/HUD/ShellLabel" method="_on_Player_shell"]
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_Timer_timeout"]
