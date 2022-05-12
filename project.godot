@@ -17,10 +17,15 @@ _global_script_class_icons={
 config/name="BirdScape"
 run/main_scene="res://Scenes/Startup.tscn"
 config/icon="res://assets/logo.png"
+config/windows_native_icon="res://assets/logo.ico"
 
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
@@ -28,6 +33,10 @@ window/size/width=480
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[global]
+
+icon=false
 
 [input]
 
