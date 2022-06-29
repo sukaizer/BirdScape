@@ -35,12 +35,13 @@ func get_input():
 		velocity.y = jump_speed
 
 func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
-	if jumping:
-		jumping = false
-	#velocity = move_and_slide(velocity, Vector2(0, 1))
-	collisions = move_and_collide(velocity*delta)
+	if GameManager.isPlaying:
+		get_input()
+		velocity.y += gravity * delta
+		if jumping:
+			jumping = false
+		#velocity = move_and_slide(velocity, Vector2(0, 1))
+		collisions = move_and_collide(velocity*delta)
 
 	if collisions:
 		emit_signal("hit")
@@ -48,20 +49,21 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if velocity.length() > 0:
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
-	if velocity.y > 0:
-		$AnimatedSprite.animation = "idle"
-		if $AnimatedSprite.rotation_degrees < 80:
-			$AnimatedSprite.rotation_degrees += rotation_speed
-			$CollisionShape2D.rotation_degrees += rotation_speed
-	else:
-		$AnimatedSprite.animation = "up"
-		if $AnimatedSprite.rotation_degrees > -80:
-			$AnimatedSprite.rotation_degrees -= rotation_speed
-			$CollisionShape2D.rotation_degrees -= rotation_speed
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 70, screen_size.y)
+	if GameManager.isPlaying:
+		if velocity.length() > 0:
+			$AnimatedSprite.play()
+		else:
+			$AnimatedSprite.stop()
+		if velocity.y > 0:
+			$AnimatedSprite.animation = "idle"
+			if $AnimatedSprite.rotation_degrees < 80:
+				$AnimatedSprite.rotation_degrees += rotation_speed
+				$CollisionShape2D.rotation_degrees += rotation_speed
+		else:
+			$AnimatedSprite.animation = "up"
+			if $AnimatedSprite.rotation_degrees > -80:
+				$AnimatedSprite.rotation_degrees -= rotation_speed
+				$CollisionShape2D.rotation_degrees -= rotation_speed
+		position.x = clamp(position.x, 0, screen_size.x)
+		position.y = clamp(position.y, 70, screen_size.y)
 

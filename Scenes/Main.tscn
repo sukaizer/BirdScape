@@ -104,7 +104,6 @@ script = ExtResource( 6 )
 z_index = 2
 
 [node name="RetryRect" type="ColorRect" parent="UI/Retry"]
-visible = false
 margin_right = 480.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 0.878431 )
@@ -116,6 +115,21 @@ margin_right = 372.0
 margin_bottom = 256.0
 theme = ExtResource( 5 )
 text = "Press enter to retry"
+
+[node name="Pause" type="Node2D" parent="UI"]
+
+[node name="PauseRect" type="ColorRect" parent="UI/Pause"]
+margin_right = 480.0
+margin_bottom = 728.0
+color = Color( 0.6, 0.509804, 0.509804, 0.568627 )
+
+[node name="Label" type="Label" parent="UI/Pause/PauseRect"]
+margin_left = 192.0
+margin_top = 216.0
+margin_right = 272.0
+margin_bottom = 256.0
+theme = ExtResource( 5 )
+text = "Pause"
 
 [node name="Shell" parent="." instance=ExtResource( 7 )]
 position = Vector2( 376, 360 )
